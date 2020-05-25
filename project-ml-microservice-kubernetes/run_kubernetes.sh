@@ -4,15 +4,19 @@
 
 # Step 1:
 # This is your Docker ID/path
-# dockerpath=<>
+dockerpath="jaynoblez/udacityflaskproject"
 
 # Step 2
 # Run the Docker Hub container with kubernetes
-
+kubectl run udacityflaskprojectk812\
+    --generator=run-pod/v1\
+    --image=$dockerpath\
+    --port=80 --labels app=udacityflaskprojectk812
 
 # Step 3:
 # List kubernetes pods
+kubectl get pods
 
 # Step 4:
 # Forward the container port to a host
-
+kubectl port-forward udacityflaskprojk812 8000:80
